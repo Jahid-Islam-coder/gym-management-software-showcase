@@ -44,6 +44,9 @@ Relying on regular paperwork for member records, visits, and payment tracking ma
 
 
 
+
+
+
 ![Check-In](screenshots/individual/daily-members.png) |
 
 
