@@ -7,8 +7,14 @@
 ## 📌 Project Overview
 A comprehensive, full-stack gym management platform designed to streamline member check-ins, automated subscription billing, class scheduling, and administrative reporting.
 
-- **Target Audience:** Gym owners, front-desk staff, and active members.
+Project Name | Trainer – End-to-End Gym Operations & Member App
+
 - **Role:** Lead Developer (Full-Stack / Architecture / UI/UX)
+
+- Responsibilities: Architected the end-to-end system to handle concurrent member check-ins, real-time database sync, and high-availability operations in active production. Designed custom workflows for gym staff and active members.
+  
+- **Target Audience:** Gym owners, front-desk staff, and active members.
+  
 - **Status:** In Active Production / Deployed
 
 
