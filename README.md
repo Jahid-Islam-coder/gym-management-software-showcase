@@ -40,7 +40,10 @@ Relying on regular paperwork for member records, visits, and payment tracking ma
 ## 📸 Screenshots & Demos
 | Dashboard Overview | Member Check-In Flow |
 | ![Dashboard](screenshots/individual/dashboard.png)
-<br />
+
+
+
+
 ![Check-In](screenshots/individual/daily-members.png) |
 
 
