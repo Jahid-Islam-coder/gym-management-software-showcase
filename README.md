@@ -39,7 +39,7 @@ Relying on regular paperwork for member records, visits, and payment tracking ma
 
 ## 📸 Screenshots & Demos
 | Dashboard Overview |
-| ![Dashboard](screenshots/individual/dashboard.png)
+![Dashboard](screenshots/individual/dashboard.png)
 
 
 
@@ -47,7 +47,7 @@ Relying on regular paperwork for member records, visits, and payment tracking ma
 
 
 | Member Check-In Flow |
-| ![Check-In](screenshots/individual/daily-members.png)
+![Check-In](screenshots/individual/daily-members.png)
 
 
 
