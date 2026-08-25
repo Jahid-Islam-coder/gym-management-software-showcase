@@ -128,12 +128,86 @@ Both `visits` and `payments` reference the corresponding member through `memberI
 
 
 
-| Member Check-In Flow |
+| Daily Members Check-In Flow |
 ![Check-In](screenshots/individual/daily-members.png)
 
 
 
-| Member Subscription Flow |
+| Monthly Members Subscription Flow |
 ![Check-In](screenshots/individual/monthly-members.png)
 
 > More application screens are available in the [`screenshots/`](screenshots/) directory.
+
+
+
+## Engineering Decisions
+
+### Native Flutter State Management
+
+The application uses Flutter's built-in state management rather than an external state management package. Given the relatively small scale of the gym and the current user base, this kept the application simpler and reduced unnecessary architectural complexity.
+
+### Service Layer for Firebase Operations
+
+Firebase and Firestore operations are separated into dedicated service classes instead of being placed directly inside UI widgets. This keeps database operations independent from the presentation layer and makes the code easier to maintain and reuse.
+
+### Separate Visits and Payments Collections
+
+Visits and payments are stored as separate Firestore collections because they represent independent operations. A visit records that a member attended the gym and tracks its payment status, while a payment represents the actual payment transaction.
+
+Both collections use `memberId` to associate records with the corresponding member.
+
+### Digital Records Instead of Paper-Based Tracking
+
+Member information, visits, payments, and subscriptions are stored digitally in Firebase instead of relying on paper records. This provides the manager with a consistent history that can be referenced when managing payments and memberships.
+
+### Automatic Inactivity Logout
+
+The application automatically logs out the authenticated user after five minutes of inactivity. This was implemented to reduce the risk of leaving an authenticated admin session unattended.
+
+
+
+## Challenges & Solutions
+
+### Designing Around the Gym's Actual Workflow
+
+**Challenge:**  
+The gym did not use a sophisticated access-control system or require members to scan a QR code to enter. A solution based on smart doors or mandatory QR verification would have introduced unnecessary cost and complexity.
+
+**Solution:**  
+The application was designed around the gym's existing workflow instead of forcing the business to change it. The manager can record visits and payments digitally while keeping the overall process simple.
+
+
+### Preventing Duplicate Daily Payments
+
+**Challenge:**  
+Daily payments could potentially be recorded multiple times if the payment action was triggered repeatedly for the same visit.
+
+**Solution:**  
+I implemented the solution with custom UI flow when a members visit is recoded by visit button tap, the button gets disabled and shows a message "Already Checked In Today" and it remains in that state until the next day when the gym opens. This also works for payments buttons to prevent multiple payment records.
+
+
+### Keeping Visit and Payment Data Consistent
+
+**Challenge:**  
+Visits and payments are stored separately, so updating one collection does not automatically update the other.
+
+**Solution:**  
+The payment workflow explicitly updates the corresponding visit record after a payment is recorded. This keeps the member's visit and payment status synchronized.
+
+
+### Supporting Different Membership Models
+
+**Challenge:**  
+The gym uses both daily payments and monthly subscriptions, each requiring different tracking logic.
+
+**Solution:**  
+The application separates daily visit/payment tracking from monthly subscription management while keeping member information centralized. This allows each membership model to follow its appropriate workflow.
+
+
+### Handling Firestore Document References
+
+**Challenge:**  
+While implementing payment tracking, a Firestore `not-found` error occurred when the application attempted to update a visit document using the literal string `"memberId"` instead of the actual member ID.
+
+**Solution:**  
+The database operation was corrected to use the actual `memberId` when identifying the relevant document, reinforcing the importance of using real document identifiers rather than placeholder strings.
