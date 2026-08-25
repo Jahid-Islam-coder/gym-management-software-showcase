@@ -2,7 +2,7 @@
 
 > **Note:** The underlying codebase for this software is private and proprietary. This repository serves as a technical case study, feature demonstration, and architectural overview.
 
----
+
 
 ## 📌 Project Overview
 A comprehensive, full-stack gym management platform designed to streamline member check-ins, automated subscription billing, class scheduling, and administrative reporting.
@@ -36,6 +36,7 @@ Keeping track of monthly members, subscription end dates, and upcoming renewals 
 Relying on regular paperwork for member records, visits, and payment tracking made everyday gym management slower and harder to maintain.
 
 
+
 ## Solution
 The Trainer App replaces the gym's paper-based member and payment management with a centralized digital system.
 
@@ -53,15 +54,37 @@ Member records, visits, payments, and subscription information are stored in one
 
 
 
-## 📸 Screenshots & Demos
-| Dashboard Overview |
-![Dashboard](screenshots/individual/dashboard.png)
+## Key Features
 
+- **Admin Authentication**
+  - Secure login with password reset functionality.
+  - Automatic logout after 5 minutes of inactivity to help protect the admin session.
 
+- **Dashboard**
+  - Daily income overview.
+  - Monthly income overview.
+  - Last 7 days' income.
+  - Unpaid payment tracking.
+  - Total registered member count.
 
+- **Member Registration**
+  - Register new gym members and store their membership information.
 
-| Member Check-In Flow |
-![Check-In](screenshots/individual/daily-members.png)
+- **Daily Member Management**
+  - Track member visits.
+  - Record daily payments.
+  - Maintain separate visit and payment records.
+
+- **Monthly Subscription Management**
+  - Track subscription periods.
+  - Monitor membership status and expiration.
+  - Manage subscription renewals.
+
+- **Member Profiles**
+  - View individual member information and track Unpaid payments.
+
+- **Member Search**
+  - Quickly find registered members.
 
 
 
@@ -81,3 +104,41 @@ Member records, visits, payments, and subscription information are stored in one
 
 ### System Architecture Diagram
 ![System Architecture](architecture/trainer-app-architecture.png)
+
+
+## Firestore Schema
+
+The application uses Cloud Firestore as its primary database. Data is organized into three main collections:
+
+- **`members`** — Stores registered gym member information, including membership details and profile information.
+- **`visits`** — Stores member visit records and their payment status for daily membership tracking.
+- **`payments`** — Stores payment records associated with individual members.
+
+Both `visits` and `payments` reference the corresponding member through `memberId`, while remaining separate collections because attendance and payment are handled as independent operations.
+
+
+
+### Data Relationships
+
+``text
+members
+   │
+   ├── memberId ──► visits
+   │
+   └── memberId ──► payments
+
+
+
+## 📸 Screenshots & Demos
+| Dashboard Overview |
+![Dashboard](screenshots/individual/dashboard.png)
+
+
+
+| Member Check-In Flow |
+![Check-In](screenshots/individual/daily-members.png)
+
+
+
+
+
