@@ -43,11 +43,11 @@ The Trainer App replaces the gym's paper-based member and payment management wit
 
 When members attend the gym, their visit and payment status are digitally tracked. the gym manager/admin uses the simple visit button to record their visit and quickly classifies them as unpaid members. When they clear daily payments, the manager/admin taps the payment button, removing the members from the unpaid section. This provides the manager with a complete payment history for each member, avoids disagreements caused by missing or confusing diary records, and essentially eliminates gym earnings leakage.
 
-3. **Simplified monthly subscription management**
+2. **Simplified monthly subscription management**
    
 Monthly members can be registered with their subscription period and tracked through the app. The manager can view membership status, monitor subscription end dates, and manage renewals without relying on manual records.
 
-4. **Centralized member management**
+3. **Centralized member management**
    
 Member records, visits, payments, and subscription information are stored in one system using Flutter and Firebase. The dashboard provides an overview of important gym metrics, helping the manager manage daily operations more efficiently while eliminating the daily manual paper work.
 
