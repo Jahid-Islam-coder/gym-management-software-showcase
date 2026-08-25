@@ -133,5 +133,7 @@ Both `visits` and `payments` reference the corresponding member through `memberI
 
 
 
+| Member Subscription Flow |
+![Check-In](screenshots/individual/monthly-members.png)
 
-
+> More application screens are available in the [`screenshots/`](screenshots/) directory.
