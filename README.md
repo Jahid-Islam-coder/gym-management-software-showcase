@@ -106,8 +106,8 @@ Member records, visits, payments, and subscription information are stored in one
 ![System Architecture](architecture/trainer-app-architecture.png)
 
 
-## Firestore Schema
 
+## Firestore Schema
 The application uses Cloud Firestore as its primary database. Data is organized into three main collections:
 
 - **`members`** — Stores registered gym member information, including membership details and profile information.
@@ -116,16 +116,9 @@ The application uses Cloud Firestore as its primary database. Data is organized 
 
 Both `visits` and `payments` reference the corresponding member through `memberId`, while remaining separate collections because attendance and payment are handled as independent operations.
 
+### Firestore Data Model
 
-
-### Data Relationships
-
-``text
-members
-   │
-   ├── memberId ──► visits
-   │
-   └── memberId ──► payments
+![Firestore Schema](architecture/firestore-schema.png)
 
 
 
