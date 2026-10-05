@@ -15,7 +15,7 @@ Project Name | Trainer – End-to-End Gym Operations App
   
 - **Target Audience:** Gym owners, front-desk staff, and active members.
   
-- **Status:** In Active Production / Deployed
+- **Status:** Deployed / Delivered.
 
 
 
