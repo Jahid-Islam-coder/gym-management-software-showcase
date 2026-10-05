@@ -7,7 +7,7 @@
 ## 📌 Project Overview
 A comprehensive, full-stack gym management platform designed to streamline member check-ins, automated subscription billing, class scheduling, and administrative reporting.
 
-Project Name | Trainer – End-to-End Gym Operations & Member App
+Project Name | Trainer – End-to-End Gym Operations App
 
 - **Role:** Lead Developer (Full-Stack / Architecture / UI/UX)
 
